@@ -1,0 +1,25 @@
+<h2>Artist List</h2>
+
+<a href="<?= $this->url('artist', ['action' => 'add']) ?>" class="btn btn-primary">+Add New Artist</a>
+
+<table class="table table-striped table-bordered">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Bio</th>
+		<th>#</th>
+	</tr>
+	<?php foreach($artists as $artist): ?>
+
+		<tr>
+			<td><?= $artist->id ?></td>
+			<td><?= $artist->name ?></td>
+			<td><?= $artist->bio ?></td>
+			<td>
+				<a href="<?= $this->url('artist', ['action' => 'edit','id'=>$artist->id]) ?>">Edit</a>
+				<a href="<?= $this->url('artist', ['action' => 'delete','id'=>$artist->id]) ?>" class="text-danger">Delete</a>
+			</td>
+			
+		</tr>
+	<?php endforeach ?>
+</table>
